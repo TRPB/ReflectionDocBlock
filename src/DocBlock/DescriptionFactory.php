@@ -14,13 +14,12 @@ declare(strict_types=1);
 namespace phpDocumentor\Reflection\DocBlock;
 
 use phpDocumentor\Reflection\Types\Context as TypeContext;
-use Webmozart\Assert\Assert;
 use function count;
 use function explode;
 use function implode;
 use function ltrim;
 use function min;
-use function preg_split;
+use function phpDocumentor\Reflection\preg_split;
 use function str_replace;
 use function strlen;
 use function strpos;
@@ -127,7 +126,6 @@ class DescriptionFactory
             0,
             PREG_SPLIT_DELIM_CAPTURE
         );
-        Assert::isArray($parts);
 
         return $parts;
     }

@@ -22,7 +22,7 @@ use Webmozart\Assert\Assert;
 use function array_shift;
 use function array_unshift;
 use function implode;
-use function preg_split;
+use function phpDocumentor\Reflection\preg_split;
 use function strpos;
 use function substr;
 use const PREG_SPLIT_DELIM_CAPTURE;
@@ -58,7 +58,6 @@ final class Var_ extends TagWithType implements Factory\StaticMethod
         [$firstPart, $body] = self::extractTypeFromBody($body);
 
         $parts = preg_split('/(\s+)/Su', $body, 2, PREG_SPLIT_DELIM_CAPTURE);
-        Assert::isArray($parts);
         $type         = null;
         $variableName = '';
 

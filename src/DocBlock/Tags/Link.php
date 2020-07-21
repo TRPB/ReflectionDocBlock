@@ -17,7 +17,7 @@ use phpDocumentor\Reflection\DocBlock\Description;
 use phpDocumentor\Reflection\DocBlock\DescriptionFactory;
 use phpDocumentor\Reflection\Types\Context as TypeContext;
 use Webmozart\Assert\Assert;
-use function preg_split;
+use function phpDocumentor\Reflection\preg_split;
 
 /**
  * Reflection class for a @link tag in a Docblock.
@@ -47,7 +47,6 @@ final class Link extends BaseTag implements Factory\StaticMethod
         Assert::notNull($descriptionFactory);
 
         $parts = preg_split('/\s+/Su', $body, 2);
-        Assert::isArray($parts);
         $description = isset($parts[1]) ? $descriptionFactory->create($parts[1], $context) : null;
 
         return new static($parts[0], $description);

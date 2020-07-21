@@ -19,7 +19,7 @@ use phpDocumentor\Reflection\Fqsen;
 use phpDocumentor\Reflection\FqsenResolver;
 use phpDocumentor\Reflection\Types\Context as TypeContext;
 use Webmozart\Assert\Assert;
-use function preg_split;
+use function phpDocumentor\Reflection\preg_split;
 
 /**
  * Reflection class for a {@}uses tag in a Docblock.
@@ -51,8 +51,6 @@ final class Uses extends BaseTag implements Factory\StaticMethod
         Assert::notNull($descriptionFactory);
 
         $parts = preg_split('/\s+/Su', $body, 2);
-        Assert::isArray($parts);
-        Assert::allString($parts);
 
         return new static(
             $resolver->resolve($parts[0], $context),
